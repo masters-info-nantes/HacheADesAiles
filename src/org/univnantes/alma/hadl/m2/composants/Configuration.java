@@ -1,4 +1,4 @@
-package org.univnantes.alma.hadl.m2;
+package org.univnantes.alma.hadl.m2.composants;
 
 public class Configuration implements Composant{
 
