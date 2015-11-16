@@ -1,5 +1,5 @@
 package org.univnantes.alma.hadl.m2;
 
-public class Configuration {
+public class Configuration implements Composant{
 
 }

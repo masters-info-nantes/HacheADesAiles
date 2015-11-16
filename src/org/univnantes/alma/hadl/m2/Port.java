@@ -1,5 +1,5 @@
 package org.univnantes.alma.hadl.m2;
 
-public class Port {
+public interface Port extends PointConnexion{
 
 }

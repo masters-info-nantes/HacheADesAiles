@@ -1,5 +1,5 @@
 package org.univnantes.alma.hadl.m2;
 
-public class Role {
+public interface Role extends PointConnexion{
 
 }
