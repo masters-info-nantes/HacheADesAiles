@@ -1,5 +1,5 @@
 package org.univnantes.alma.hadl.m2.interfaces;
 
-public class RoleFournis extends Role {
+public class ConfigPort extends Port {
 
 }

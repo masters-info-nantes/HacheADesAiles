@@ -1,5 +1,5 @@
 package org.univnantes.alma.hadl.m2.interfaces;
 
-public interface TypeConnexion {
+public abstract class TypeConnexion {
 
 }

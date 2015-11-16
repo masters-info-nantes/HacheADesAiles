@@ -1,5 +1,5 @@
 package org.univnantes.alma.hadl.m2.interfaces;
 
-public class RoleRequis implements Role {
+public class RoleRequis extends Role {
 
 }

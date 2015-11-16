@@ -1,5 +1,5 @@
 package org.univnantes.alma.hadl.m2.interfaces;
 
-public interface PointConnexion extends Interface{
+public abstract class PointConnexion extends Interface{
 
 }
