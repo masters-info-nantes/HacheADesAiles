@@ -2,8 +2,8 @@ package org.univnantes.alma.hadl.m2.interfaces;
 
 public class PortFournis extends Port {
 
-	public PortFournis(TypeConnexion type) {
-		super(type);
+	public PortFournis(String label, TypeConnexion type) {
+		super(label,type);
 		// TODO Auto-generated constructor stub
 	}
 

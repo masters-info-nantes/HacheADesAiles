@@ -4,7 +4,8 @@ public abstract class PointConnexion extends Interface{
 	
 	private TypeConnexion type;
 	
-	public PointConnexion(TypeConnexion type){
+	public PointConnexion(String label,TypeConnexion type){
+		super(label);
 		this.type = type;
 	}
 	public TypeConnexion getType() {

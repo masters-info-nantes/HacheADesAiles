@@ -14,4 +14,6 @@ public abstract class Composant {
 	protected Map<String,Interface> interfaces = new HashMap<String,Interface>();
 	
 	protected Map<String,Connecteur> connecteurs = new HashMap<String,Connecteur>();
+	
+	
 }
