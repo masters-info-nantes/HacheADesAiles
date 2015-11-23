@@ -1,5 +1,5 @@
 package org.univnantes.alma.hadl.m2.interfaces;
 
-public abstract class TypeConnexion {
-
+public enum TypeConnexion {
+	ASYNCHRONE, SYNCHRONE, CONTINU
 }

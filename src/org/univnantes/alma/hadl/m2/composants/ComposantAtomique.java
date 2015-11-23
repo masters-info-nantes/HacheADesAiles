@@ -1,11 +1,12 @@
 package org.univnantes.alma.hadl.m2.composants;
 
-import java.util.Set;
+import java.util.Map;
 
-import org.univnantes.alma.hadl.m2.interfaces.*;
+import org.univnantes.alma.hadl.m2.interfaces.Port;
+import org.univnantes.alma.hadl.m2.interfaces.Service;
 
 public class ComposantAtomique extends Composant{
 
-	protected Set<Port> ports;
-	protected Set<Service> services;
+	protected Map<String,Port> ports;
+	protected Map<String,Service> services;
 }
