@@ -1,22 +1,24 @@
 package org.univnantes.alma.hadl.m2.connecteurs;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.univnantes.alma.hadl.m2.autres.ContrainteTechnique;
 import org.univnantes.alma.hadl.m2.autres.Propriete;
 import org.univnantes.alma.hadl.m2.composants.Composant;
-import org.univnantes.alma.hadl.m2.interfaces.Role;
+import org.univnantes.alma.hadl.m2.interfaces.RoleFournis;
+import org.univnantes.alma.hadl.m2.interfaces.RoleRequis;
 
 public abstract class Connecteur {
 	private String label;
 	protected Glue glue;
-	protected Map<String,ContrainteTechnique> contraintes = new HashMap<String, ContrainteTechnique>();
-	protected Map<String,Propriete> proprietes = new HashMap<String, Propriete>();
+	protected Set<ContrainteTechnique> contraintes = new HashSet<ContrainteTechnique>();
+	protected Set<Propriete> proprietes = new HashSet<Propriete>();
 	
-	protected Map<String,Role> roles = new HashMap<String, Role>();
+	protected Set<RoleRequis> rolesrequis = new HashSet<RoleRequis>();
+	protected Set<RoleFournis> rolesfournis = new HashSet<RoleFournis>();
 	
-	protected Map<String,Composant> composants = new HashMap<String, Composant>();
+	protected Set<Composant> composants = new HashSet<Composant>();
 	
 	public Connecteur(String label){
 		this.label = label;
@@ -30,5 +32,34 @@ public abstract class Connecteur {
 	public void setLabel(String label) {
 		this.label = label;
 	}
+
+	public Glue getGlue() {
+		return glue;
+	}
+
+	public void setGlue(Glue glue) {
+		this.glue = glue;
+	}
+
+	public boolean add(ContrainteTechnique e) {
+		return contraintes.add(e);
+	}
+
+	public boolean add(Propriete e) {
+		return proprietes.add(e);
+	}
+
+	public boolean add(RoleRequis e) {
+		return rolesrequis.add(e);
+	}
+
+	public boolean add(RoleFournis e) {
+		return rolesfournis.add(e);
+	}
+
+	public boolean add(Composant e) {
+		return composants.add(e);
+	}
+	
 	
 }

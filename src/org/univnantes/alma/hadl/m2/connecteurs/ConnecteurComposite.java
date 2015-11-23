@@ -1,10 +1,10 @@
 package org.univnantes.alma.hadl.m2.connecteurs;
 
-import java.util.Map;
+import java.util.Set;
 
 public class ConnecteurComposite extends Connecteur {
 
-	protected Map<String,Connecteur> connecteurs;
+	protected Set<Connecteur> connecteurs;
 	
 	public ConnecteurComposite(String label) {
 		super(label);
