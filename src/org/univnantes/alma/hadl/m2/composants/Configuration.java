@@ -14,4 +14,14 @@ public class Configuration extends Composant{
 		super(label);
 		// TODO Auto-generated constructor stub
 	}
+
+	public boolean add(ConfigPort e) {
+		return configPorts.add(e);
+	}
+
+	public boolean add(Composant e) {
+		return composants.add(e);
+	}
+	
+	
 }
