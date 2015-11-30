@@ -12,20 +12,28 @@ import org.univnantes.alma.hadl.m2.interfaces.ServiceFournis;
 import org.univnantes.alma.hadl.m2.interfaces.ServiceRequis;
 
 public abstract class Composant {
+	
 	private String label;
 	
-	protected Set<ContrainteTechnique> contraintes = new HashSet<ContrainteTechnique>();
-	protected Set<Propriete> proprietes = new HashSet<Propriete>();
+	protected Set<ContrainteTechnique> contraintes;
+	protected Set<Propriete> proprietes;
 	
-	protected Set<PortFournis> portsfournis = new HashSet<PortFournis>();
-	protected Set<PortRequis> portsrequis = new HashSet<PortRequis>();
-	protected Set<ServiceFournis> servicesfournis = new HashSet<ServiceFournis>();
-	protected Set<ServiceRequis> servicesrequis = new HashSet<ServiceRequis>();
+	protected Set<PortFournis> portsfournis;
+	protected Set<PortRequis> portsrequis;
+	protected Set<ServiceFournis> servicesfournis;
+	protected Set<ServiceRequis> servicesrequis;
 	
-	protected Set<Connecteur> connecteurs = new HashSet<Connecteur>();
+	protected Set<Connecteur> connecteurs;
 	
 	public Composant(String label){
 		this.label = label;
+		this.contraintes = new HashSet<ContrainteTechnique>();
+		this.proprietes = new HashSet<Propriete>();
+		this.portsfournis = new HashSet<PortFournis>();
+		this.portsrequis = new HashSet<PortRequis>();
+		this.servicesfournis = new HashSet<ServiceFournis>();
+		this.servicesrequis = new HashSet<ServiceRequis>();
+		this.connecteurs = new HashSet<Connecteur>();
 	}
 	
 	public String getLabel(){

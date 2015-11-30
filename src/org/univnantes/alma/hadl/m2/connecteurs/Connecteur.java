@@ -10,19 +10,25 @@ import org.univnantes.alma.hadl.m2.interfaces.RoleFournis;
 import org.univnantes.alma.hadl.m2.interfaces.RoleRequis;
 
 public abstract class Connecteur {
+	
 	private String label;
 	protected Glue glue;
-	protected Set<ContrainteTechnique> contraintes = new HashSet<ContrainteTechnique>();
-	protected Set<Propriete> proprietes = new HashSet<Propriete>();
+	protected Set<ContrainteTechnique> contraintes;
+	protected Set<Propriete> proprietes;
 	
-	protected Set<RoleRequis> rolesrequis = new HashSet<RoleRequis>();
-	protected Set<RoleFournis> rolesfournis = new HashSet<RoleFournis>();
+	protected Set<RoleRequis> rolesrequis;
+	protected Set<RoleFournis> rolesfournis;
 	
-	protected Set<Composant> composants = new HashSet<Composant>();
+	protected Set<Composant> composants;
 	
 	public Connecteur(String label){
 		this.label = label;
 		this.glue = new Glue();
+		this.contraintes = new HashSet<ContrainteTechnique>();
+		this.proprietes = new HashSet<Propriete>();
+		this.rolesrequis = new HashSet<RoleRequis>();
+		this.rolesfournis = new HashSet<RoleFournis>();
+		this.composants = new HashSet<Composant>();
 	}
 
 	public String getLabel() {
