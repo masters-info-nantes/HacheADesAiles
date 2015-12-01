@@ -1,5 +1,6 @@
 package org.univnantes.alma.hadl.m2.composants;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.univnantes.alma.hadl.m2.autres.Attachement;
@@ -15,7 +16,10 @@ public class Configuration extends Composant{
 	
 	public Configuration(String label) {
 		super(label);
-		// TODO Auto-generated constructor stub
+		
+		configPorts =  new HashSet<ConfigPort>();
+		composants = new HashSet<Composant>();
+		attachements = new HashSet<Attachement>();
 	}
 
 	public boolean add(ConfigPort e) {
@@ -28,6 +32,18 @@ public class Configuration extends Composant{
 
 	public boolean add(Attachement e) {
 		return attachements.add(e);
+	}
+
+	public Set<ConfigPort> getConfigPorts() {
+		return configPorts;
+	}
+
+	public Set<Composant> getComposants() {
+		return composants;
+	}
+
+	public Set<Attachement> getAttachements() {
+		return attachements;
 	}
 	
 	

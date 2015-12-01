@@ -20,6 +20,7 @@ public abstract class Composant {
 	
 	protected Set<PortFournis> portsfournis;
 	protected Set<PortRequis> portsrequis;
+	
 	protected Set<ServiceFournis> servicesfournis;
 	protected Set<ServiceRequis> servicesrequis;
 	
@@ -70,6 +71,39 @@ public abstract class Composant {
 
 	public boolean add(Connecteur e) {
 		return connecteurs.add(e);
+	}
+
+	public Set<ContrainteTechnique> getContraintes() {
+		return contraintes;
+	}
+
+	public Set<Propriete> getProprietes() {
+		return proprietes;
+	}
+
+	public Set<PortFournis> getPortsfournis() {
+		return portsfournis;
+	}
+
+	public Set<PortRequis> getPortsrequis() {
+		return portsrequis;
+	}
+
+	public Set<ServiceFournis> getServicesfournis() {
+		return servicesfournis;
+	}
+
+	public Set<ServiceRequis> getServicesrequis() {
+		return servicesrequis;
+	}
+
+	public Set<Connecteur> getConnecteurs() {
+		return connecteurs;
+	}
+
+	@Override
+	public String toString() {
+		return "Composant [label=" + label + "]";
 	}
 	
 	

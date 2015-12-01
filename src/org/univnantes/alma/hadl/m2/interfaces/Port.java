@@ -7,4 +7,10 @@ public abstract class Port extends PointConnexion{
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "Port [label=" + super.getLabel() + "]";
+	}
+
+	
 }

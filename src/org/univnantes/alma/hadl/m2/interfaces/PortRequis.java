@@ -7,4 +7,9 @@ public class PortRequis extends Port {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "PortFournis [label=" + super.getLabel() + "]";
+	}
+	
 }
