@@ -3,9 +3,9 @@ package org.univnantes.alma.hadl.m1.ports.fournis;
 import org.univnantes.alma.hadl.m2.interfaces.PortFournis;
 import org.univnantes.alma.hadl.m2.interfaces.TypeConnexion;
 
-public class Security_Management extends PortFournis {
+public class QueryD_Fournis extends PortFournis {
 
-	public Security_Management(String label, TypeConnexion type) {
+	public QueryD_Fournis(String label, TypeConnexion type) {
 		super(label, type);
 		// TODO Auto-generated constructor stub
 	}

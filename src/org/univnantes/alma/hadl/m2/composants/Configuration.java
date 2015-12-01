@@ -2,6 +2,7 @@ package org.univnantes.alma.hadl.m2.composants;
 
 import java.util.Set;
 
+import org.univnantes.alma.hadl.m2.autres.Attachement;
 import org.univnantes.alma.hadl.m2.interfaces.ConfigPort;
 
 public class Configuration extends Composant{
@@ -9,6 +10,8 @@ public class Configuration extends Composant{
 	protected Set<ConfigPort> configPorts;
 	
 	protected Set<Composant> composants;
+	
+	protected Set<Attachement> attachements;
 	
 	public Configuration(String label) {
 		super(label);
@@ -21,6 +24,10 @@ public class Configuration extends Composant{
 
 	public boolean add(Composant e) {
 		return composants.add(e);
+	}
+
+	public boolean add(Attachement e) {
+		return attachements.add(e);
 	}
 	
 	
