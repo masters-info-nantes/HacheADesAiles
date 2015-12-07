@@ -13,7 +13,8 @@ public class RoleFournis extends Role {
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		if(o instanceof PortRequis){
-			System.out.println("roleFournis"+super.getLabel());
+			System.out.println("Role Fournis "+super.getLabel());
+			((PortRequis) o).receiveRequest((String)arg);
 		}
 	}
 

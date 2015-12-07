@@ -15,14 +15,14 @@ public class ClientServeur extends Configuration {
 		
 		this.addConnecteur(new RPC("RPC"));
 		
-		this.addAttachement(new Attachement("attachementClientRPC", this.getComposantByLabel("Client").getPortFournisByLabel("SendRequest"), 
+		this.addAttachement(new Attachement("attachementClientRPC", this.getComposantByLabel("Client").getPortFournisByLabel("Client_SendRequest"), 
 												this.getConnecteurByLabel("RPC").getRoleRequisByLabel("fromClient_SendRequest")));
 		
-		this.addAttachement(new Attachement("attachementServeurRPC", ((Configuration)this.getComposantByLabel("Serveur")).getConfigPortRequisByLabel("ReceiveRequest"), 
+		this.addAttachement(new Attachement("attachementServeurRPC", ((Configuration)this.getComposantByLabel("Serveur")).getConfigPortRequisByLabel("Server_ReceiveRequest"), 
 												this.getConnecteurByLabel("RPC").getRoleFournisByLabel("toServer_ReceiveRequest")));
 	}
 
 	public void run(){
-		this.getComposantByLabel("Client").getPortFournisByLabel("SendRequest").sendRequest("Bonjour");
+		this.getComposantByLabel("Client").getPortFournisByLabel("Client_SendRequest").sendRequest("Bonjour");
 	}
 }

@@ -16,6 +16,7 @@ public class Attachement {
 		this.role = role;
 		
 		this.role.addObserver(port);
+		this.port.addObserver(role);
 	}
 
 	public String getLabel() {

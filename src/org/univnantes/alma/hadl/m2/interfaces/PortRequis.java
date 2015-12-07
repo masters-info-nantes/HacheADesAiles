@@ -17,10 +17,14 @@ public class PortRequis extends Port {
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		
+		if(o instanceof RoleFournis){
+			System.out.println("Port requis"+super.getLabel());
+		}
 	}
 	
-	public void receiveRequest(){
-		System.out.println("Receive");
+	public void receiveRequest(String message){
+		System.out.println("Receive "+ message);
+		this.setChanged();
+		notifyObservers();
 	}
 }

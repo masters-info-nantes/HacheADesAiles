@@ -28,11 +28,11 @@ public class Serveur extends Configuration {
 		this.addConnecteur(new SQLQuery("SQLQuery"));
 		this.addConnecteur(new SecurityQuery("SecurityQuery"));
 		
-		this.addConfigPortRequis(new Server_ReceiveRequest("ReceiveRequest",TypeConnexion.CONTINU));
-		this.addConfigPortFournis(new Server_SendRequest("SendRequest",TypeConnexion.CONTINU));
+		this.addConfigPortRequis(new Server_ReceiveRequest("Server_ReceiveRequest",TypeConnexion.CONTINU));
+		this.addConfigPortFournis(new Server_SendRequest("Server_SendRequest",TypeConnexion.CONTINU));
 		
-		this.addServiceRequis(new Server_ReceiveRequest_Service("ReceiveRequest_Service"));
-		this.addServiceFournis(new Server_SendRequest_Service("SendRequest_Service"));
+		this.addServiceRequis(new Server_ReceiveRequest_Service("Server_ReceiveRequest_Service"));
+		this.addServiceFournis(new Server_SendRequest_Service("Server_SendRequest_Service"));
 		
 		
 		this.addAttachement(new Attachement("attSecuClearance_To", 
@@ -86,8 +86,12 @@ public class Serveur extends Configuration {
 											this.getConnecteurByLabel("SecurityQuery").getRoleRequisByLabel("fromSecurityManagement")));
 		
 		this.addBinding(new Binding("bindConnServeur", 
-						this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("ExternalSocket"), 
-						this.getConfigPortFournisByLabel("SendRequest")));
+						this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("ExternalSocket_Requis"), 
+						this.getConfigPortFournisByLabel("Server_SendRequest")));
+		
+		this.addBinding(new Binding("bindServeurConn", 
+				this.getComposantByLabel("ConnexionManager").getPortFournisByLabel("ExternalSocket_Fournis"), 
+				this.getConfigPortRequisByLabel("Server_ReceiveRequest")));
 
 	}
 
