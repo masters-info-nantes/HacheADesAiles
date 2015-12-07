@@ -12,11 +12,11 @@ public class Client extends ComposantAtomique {
 	public Client(String label) {
 		super(label);
 
-		this.add(new Client_SendRequest("SendRequest",TypeConnexion.CONTINU));
-		this.add(new Client_ReceiveRequest("ReceiveRequest",TypeConnexion.CONTINU));
+		this.addPortFournis(new Client_SendRequest("SendRequest",TypeConnexion.CONTINU));
+		this.addPortRequis(new Client_ReceiveRequest("ReceiveRequest",TypeConnexion.CONTINU));
 		
-		this.add(new Client_SendRequest_Service("SendRequest_Service"));
-		this.add(new Client_ReceiveRequest_Service("ReceiveRequest_Service"));
+		this.addServiceFournis(new Client_SendRequest_Service("SendRequest_Service"));
+		this.addServiceRequis(new Client_ReceiveRequest_Service("ReceiveRequest_Service"));
 	}
 
 }

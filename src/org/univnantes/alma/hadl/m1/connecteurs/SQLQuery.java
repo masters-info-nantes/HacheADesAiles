@@ -11,10 +11,10 @@ public class SQLQuery extends Connecteur {
 		super(label);
 		
 		this.setGlue(new SQLQuery_Glue());
-		this.add(new Called("toDBQuery",TypeConnexion.CONTINU));
-		this.add(new Called("toQueryD",TypeConnexion.CONTINU));
-		this.add(new Caller("fromDBQuery",TypeConnexion.CONTINU));
-		this.add(new Caller("fromQueryD",TypeConnexion.CONTINU));
+		this.addRoleFournis(new Called("toDBQuery",TypeConnexion.CONTINU));
+		this.addRoleFournis(new Called("toQueryD",TypeConnexion.CONTINU));
+		this.addRoleRequis(new Caller("fromDBQuery",TypeConnexion.CONTINU));
+		this.addRoleRequis(new Caller("fromQueryD",TypeConnexion.CONTINU));
 	}
 
 }

@@ -45,31 +45,31 @@ public abstract class Composant {
 		this.label = label;
 	}
 
-	public boolean add(ContrainteTechnique e) {
+	public boolean addContrainte(ContrainteTechnique e) {
 		return contraintes.add(e);
 	}
 
-	public boolean add(Propriete e) {
+	public boolean addPropriete(Propriete e) {
 		return proprietes.add(e);
 	}
 
-	public boolean add(PortFournis e) {
+	public boolean addPortFournis(PortFournis e) {
 		return portsfournis.add(e);
 	}
 
-	public boolean add(PortRequis e) {
+	public boolean addPortRequis(PortRequis e) {
 		return portsrequis.add(e);
 	}
 
-	public boolean add(ServiceFournis e) {
+	public boolean addServiceFournis(ServiceFournis e) {
 		return servicesfournis.add(e);
 	}
 
-	public boolean add(ServiceRequis e) {
+	public boolean addServiceRequis(ServiceRequis e) {
 		return servicesrequis.add(e);
 	}
 
-	public boolean add(Connecteur e) {
+	public boolean addConnecteur(Connecteur e) {
 		return connecteurs.add(e);
 	}
 

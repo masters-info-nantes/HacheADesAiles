@@ -11,10 +11,10 @@ public class ClearanceRequest extends Connecteur {
 		super(label);
 
 		this.setGlue(new ClearanceRequest_Glue());
-		this.add(new Called("toSecurityCheck",TypeConnexion.CONTINU));
-		this.add(new Called("toSecurityAuth",TypeConnexion.CONTINU));
-		this.add(new Caller("fromSecurityCheck",TypeConnexion.CONTINU));
-		this.add(new Caller("fromSecurityAuth",TypeConnexion.CONTINU));
+		this.addRoleFournis(new Called("toSecurityCheck",TypeConnexion.CONTINU));
+		this.addRoleFournis(new Called("toSecurityAuth",TypeConnexion.CONTINU));
+		this.addRoleRequis(new Caller("fromSecurityCheck",TypeConnexion.CONTINU));
+		this.addRoleRequis(new Caller("fromSecurityAuth",TypeConnexion.CONTINU));
 	}
 
 }

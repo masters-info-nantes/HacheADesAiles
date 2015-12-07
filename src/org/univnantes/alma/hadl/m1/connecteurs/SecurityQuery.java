@@ -11,10 +11,10 @@ public class SecurityQuery extends Connecteur {
 		super(label);
 
 		this.setGlue(new SecurityQuery_Glue());
-		this.add(new Called("toSecurityManagement",TypeConnexion.CONTINU));
-		this.add(new Called("toCheckQuery",TypeConnexion.CONTINU));
-		this.add(new Caller("fromSecurityManagement",TypeConnexion.CONTINU));
-		this.add(new Caller("fromCheckQuery",TypeConnexion.CONTINU));
+		this.addRoleFournis(new Called("toSecurityManagement",TypeConnexion.CONTINU));
+		this.addRoleFournis(new Called("toCheckQuery",TypeConnexion.CONTINU));
+		this.addRoleRequis(new Caller("fromSecurityManagement",TypeConnexion.CONTINU));
+		this.addRoleRequis(new Caller("fromCheckQuery",TypeConnexion.CONTINU));
 	}
 
 }

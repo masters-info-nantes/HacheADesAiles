@@ -47,23 +47,23 @@ public abstract class Connecteur {
 		this.glue = glue;
 	}
 
-	public boolean add(ContrainteTechnique e) {
+	public boolean addContrainteTechnique(ContrainteTechnique e) {
 		return contraintes.add(e);
 	}
 
-	public boolean add(Propriete e) {
+	public boolean addPropriete(Propriete e) {
 		return proprietes.add(e);
 	}
 
-	public boolean add(RoleRequis e) {
+	public boolean addRoleRequis(RoleRequis e) {
 		return rolesrequis.add(e);
 	}
 
-	public boolean add(RoleFournis e) {
+	public boolean addRoleFournis(RoleFournis e) {
 		return rolesfournis.add(e);
 	}
 
-	public boolean add(Composant e) {
+	public boolean addComposant(Composant e) {
 		return composants.add(e);
 	}
 	

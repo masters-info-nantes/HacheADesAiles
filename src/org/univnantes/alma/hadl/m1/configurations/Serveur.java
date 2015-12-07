@@ -18,19 +18,19 @@ public class Serveur extends Configuration {
 	public Serveur(String label) {
 		super(label);
 
-		this.add(new SecurityManager("SecurityManager"));
-		this.add(new ConnexionManager("ConnexionManager"));
-		this.add(new Database("Database"));
+		this.addComposant(new SecurityManager("SecurityManager"));
+		this.addComposant(new ConnexionManager("ConnexionManager"));
+		this.addComposant(new Database("Database"));
 		
-		this.add(new ClearanceRequest("ClearanceRequest"));
-		this.add(new SQLQuery("SQLQuery"));
-		this.add(new SecurityQuery("SecurityQuery"));
+		this.addConnecteur(new ClearanceRequest("ClearanceRequest"));
+		this.addConnecteur(new SQLQuery("SQLQuery"));
+		this.addConnecteur(new SecurityQuery("SecurityQuery"));
 		
-		this.add(new Server_ReceiveRequest("ReceiveRequest",TypeConnexion.CONTINU));
-		this.add(new Server_SendRequest("SendRequest",TypeConnexion.CONTINU));
+		this.addPortRequis(new Server_ReceiveRequest("ReceiveRequest",TypeConnexion.CONTINU));
+		this.addPortFournis(new Server_SendRequest("SendRequest",TypeConnexion.CONTINU));
 		
-		this.add(new Server_ReceiveRequest_Service("ReceiveRequest_Service"));
-		this.add(new Server_SendRequest_Service("SendRequest_Service"));
+		this.addServiceRequis(new Server_ReceiveRequest_Service("ReceiveRequest_Service"));
+		this.addServiceFournis(new Server_SendRequest_Service("SendRequest_Service"));
 	}
 
 }

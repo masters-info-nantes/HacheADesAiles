@@ -11,8 +11,8 @@ public class RPC extends Connecteur {
 		super(label);
 
 		this.setGlue(new RPC_Glue());
-		this.add(new Called("toServer_ReceiveRequest",TypeConnexion.CONTINU));
-		this.add(new Caller("fromClient_SendRequest",TypeConnexion.CONTINU));
+		this.addRoleFournis(new Called("toServer_ReceiveRequest",TypeConnexion.CONTINU));
+		this.addRoleRequis(new Caller("fromClient_SendRequest",TypeConnexion.CONTINU));
 	}
 
 }

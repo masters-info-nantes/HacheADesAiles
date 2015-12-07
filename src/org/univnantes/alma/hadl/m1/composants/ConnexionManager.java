@@ -16,17 +16,17 @@ public class ConnexionManager extends ComposantAtomique{
 	public ConnexionManager(String label) {
 		super(label);
 		
-		this.add(new SecurityCheck_Fournis("Securityheck_Fournis", TypeConnexion.CONTINU));
-		this.add(new DBQuery_Fournis("DQQuery_Fournis", TypeConnexion.CONTINU));
+		this.addPortFournis(new SecurityCheck_Fournis("Securityheck_Fournis", TypeConnexion.CONTINU));
+		this.addPortFournis(new DBQuery_Fournis("DQQuery_Fournis", TypeConnexion.CONTINU));
 		
-		this.add(new SecurityCheck_Requis("Securityheck_Requis", TypeConnexion.CONTINU));
-		this.add(new DBQuery_Requis("DQQuery_Requis", TypeConnexion.CONTINU));
+		this.addPortRequis(new SecurityCheck_Requis("Securityheck_Requis", TypeConnexion.CONTINU));
+		this.addPortRequis(new DBQuery_Requis("DQQuery_Requis", TypeConnexion.CONTINU));
 		
-		this.add(new SecurityCheck_ServiceFournis("SecurityCheck_ServiceFournis"));
-		this.add(new DBQuery_ServiceFournis("DBQuery_ServiceFournis"));
+		this.addServiceFournis(new SecurityCheck_ServiceFournis("SecurityCheck_ServiceFournis"));
+		this.addServiceFournis(new DBQuery_ServiceFournis("DBQuery_ServiceFournis"));
 		
-		this.add(new SecurityCheck_ServiceRequis("SecurityCheck_ServiceRequis"));
-		this.add(new DBQuery_ServiceRequis("DBQuery_ServiceRequis"));
+		this.addServiceRequis(new SecurityCheck_ServiceRequis("SecurityCheck_ServiceRequis"));
+		this.addServiceRequis(new DBQuery_ServiceRequis("DBQuery_ServiceRequis"));
 	}
 
 }

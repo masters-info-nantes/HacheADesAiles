@@ -16,17 +16,17 @@ public class Database extends ComposantAtomique{
 	public Database(String label) {
 		super(label);
 		
-		this.add(new QueryD_Fournis("QueryD_Fournis", TypeConnexion.CONTINU));
-		this.add(new Security_Management_Fournis("SecurityManagement_Fournis", TypeConnexion.CONTINU));
+		this.addPortFournis(new QueryD_Fournis("QueryD_Fournis", TypeConnexion.CONTINU));
+		this.addPortFournis(new Security_Management_Fournis("SecurityManagement_Fournis", TypeConnexion.CONTINU));
 		
-		this.add(new QueryD_Requis("QueryD_Requis", TypeConnexion.CONTINU));
-		this.add(new Security_Management_Requis("SecurityManagement_Requis", TypeConnexion.CONTINU));
+		this.addPortRequis(new QueryD_Requis("QueryD_Requis", TypeConnexion.CONTINU));
+		this.addPortRequis(new Security_Management_Requis("SecurityManagement_Requis", TypeConnexion.CONTINU));
 		
-		this.add(new QueryD_ServiceFournis("QueryD_ServiceFournis"));
-		this.add(new SecurityManagement_ServiceFournis("SecurityManagement_ServiceFournis"));
+		this.addServiceFournis(new QueryD_ServiceFournis("QueryD_ServiceFournis"));
+		this.addServiceFournis(new SecurityManagement_ServiceFournis("SecurityManagement_ServiceFournis"));
 		
-		this.add(new QueryD_ServiceRequis("QueryD_ServiceRequis"));
-		this.add(new SecurityManagement_ServiceRequis("SecurityManagement_ServiceRequis"));
+		this.addServiceRequis(new QueryD_ServiceRequis("QueryD_ServiceRequis"));
+		this.addServiceRequis(new SecurityManagement_ServiceRequis("SecurityManagement_ServiceRequis"));
 	}
 
 }

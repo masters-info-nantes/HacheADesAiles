@@ -22,15 +22,15 @@ public class Configuration extends Composant{
 		attachements = new HashSet<Attachement>();
 	}
 
-	public boolean add(ConfigPort e) {
+	public boolean addConfigPort(ConfigPort e) {
 		return configPorts.add(e);
 	}
 
-	public boolean add(Composant e) {
+	public boolean addComposant(Composant e) {
 		return composants.add(e);
 	}
 
-	public boolean add(Attachement e) {
+	public boolean addAttachement(Attachement e) {
 		return attachements.add(e);
 	}
 

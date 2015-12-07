@@ -9,10 +9,10 @@ public class ClientServeur extends Configuration {
 	public ClientServeur(String label) {
 		super(label);
 		
-		this.add(new Client("Client"));
-		this.add(new Serveur("Serveur"));
+		this.addComposant(new Client("Client"));
+		this.addComposant(new Serveur("Serveur"));
 		
-		this.add(new RPC("RPC"));
+		this.addConnecteur(new RPC("RPC"));
 	}
 
 }
