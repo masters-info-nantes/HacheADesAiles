@@ -66,6 +66,30 @@ public abstract class Connecteur {
 	public boolean addComposant(Composant e) {
 		return composants.add(e);
 	}
+
+	public Set<RoleRequis> getRolesrequis() {
+		return rolesrequis;
+	}
+
+	public Set<RoleFournis> getRolesfournis() {
+		return rolesfournis;
+	}
 	
+	public RoleFournis getRoleFournisByLabel(String label){
+		for(RoleFournis r : rolesfournis){
+			if(r.getLabel() == label){
+				return r;
+			}
+		}
+		return null;
+	}
 	
+	public RoleRequis getRoleRequisByLabel(String label){
+		for(RoleRequis r : rolesrequis){
+			if(r.getLabel() == label){
+				return r;
+			}
+		}
+		return null;
+	}
 }

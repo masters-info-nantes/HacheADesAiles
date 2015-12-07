@@ -101,6 +101,33 @@ public abstract class Composant {
 		return connecteurs;
 	}
 
+	public Connecteur getConnecteurByLabel(String label) {
+		for(Connecteur c : connecteurs){
+			if(c.getLabel() == label){
+				return c;
+			}
+		}
+		return null;
+	}
+	
+	public PortRequis getPortRequisByLabel(String label){
+		for(PortRequis p : portsrequis){
+			if(p.getLabel() == label){
+				return p;
+			}
+		}
+		return null;
+	}
+	
+	public PortFournis getPortFournisByLabel(String label){
+		for(PortFournis p : portsfournis){
+			if(p.getLabel() == label){
+				return p;
+			}
+		}
+		return null;
+	}
+	
 	@Override
 	public String toString() {
 		return "Composant [label=" + label + "]";

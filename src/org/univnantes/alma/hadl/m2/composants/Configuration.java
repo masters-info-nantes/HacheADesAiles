@@ -57,5 +57,12 @@ public class Configuration extends Composant{
 		return attachements;
 	}
 	
-	
+	public Composant getComposantByLabel(String label) {
+		for(Composant c : composants){
+			if(c.getLabel() == label){
+				return c;
+			}
+		}
+		return null;
+	}
 }
