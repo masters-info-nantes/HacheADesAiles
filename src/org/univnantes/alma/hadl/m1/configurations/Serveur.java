@@ -48,7 +48,7 @@ public class Serveur extends Configuration {
 											this.getConnecteurByLabel("ClearanceRequest").getRoleRequisByLabel("fromSecurityAuth")));
 		
 		this.addAttachement(new Attachement("attSecuSecu_From", 
-											this.getComposantByLabel("SecurityManager").getPortFournisByLabel("CheckQuery_Fournis"), 
+											this.getComposantByLabel("SecurityManager").getPortFournisByLabel("Checimport org.univnantes.alma.hadl.m1.ports.requis.ExternalSocket;kQuery_Fournis"), 
 											this.getConnecteurByLabel("SecurityQuery").getRoleRequisByLabel("fromCheckQuery")));
 		
 		
