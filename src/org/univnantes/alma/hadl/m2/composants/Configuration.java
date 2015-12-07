@@ -4,11 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.univnantes.alma.hadl.m2.autres.Attachement;
-import org.univnantes.alma.hadl.m2.interfaces.ConfigPort;
+import org.univnantes.alma.hadl.m2.interfaces.ConfigPortFournis;
+import org.univnantes.alma.hadl.m2.interfaces.ConfigPortRequis;
 
 public class Configuration extends Composant{
 
-	protected Set<ConfigPort> configPorts;
+	protected Set<ConfigPortRequis> configPortsRequis;
+	protected Set<ConfigPortFournis> configPortsFournis;
 	
 	protected Set<Composant> composants;
 	
@@ -17,13 +19,18 @@ public class Configuration extends Composant{
 	public Configuration(String label) {
 		super(label);
 		
-		configPorts =  new HashSet<ConfigPort>();
+		configPortsRequis =  new HashSet<ConfigPortRequis>();
+		configPortsFournis = new HashSet<ConfigPortFournis>();
 		composants = new HashSet<Composant>();
 		attachements = new HashSet<Attachement>();
 	}
 
-	public boolean addConfigPort(ConfigPort e) {
-		return configPorts.add(e);
+	public boolean addConfigPortRequis(ConfigPortRequis e) {
+		return configPortsRequis.add(e);
+	}
+	
+	public boolean addConfigPortFournis(ConfigPortFournis e) {
+		return configPortsFournis.add(e);
 	}
 
 	public boolean addComposant(Composant e) {
@@ -34,8 +41,12 @@ public class Configuration extends Composant{
 		return attachements.add(e);
 	}
 
-	public Set<ConfigPort> getConfigPorts() {
-		return configPorts;
+	public Set<ConfigPortRequis> getConfigPortsRequis() {
+		return configPortsRequis;
+	}
+	
+	public Set<ConfigPortFournis> getConfigPortsFournis() {
+		return configPortsFournis;
 	}
 
 	public Set<Composant> getComposants() {

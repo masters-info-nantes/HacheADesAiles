@@ -26,8 +26,8 @@ public class Serveur extends Configuration {
 		this.addConnecteur(new SQLQuery("SQLQuery"));
 		this.addConnecteur(new SecurityQuery("SecurityQuery"));
 		
-		this.addPortRequis(new Server_ReceiveRequest("ReceiveRequest",TypeConnexion.CONTINU));
-		this.addPortFournis(new Server_SendRequest("SendRequest",TypeConnexion.CONTINU));
+		this.addConfigPortRequis(new Server_ReceiveRequest("ReceiveRequest",TypeConnexion.CONTINU));
+		this.addConfigPortFournis(new Server_SendRequest("SendRequest",TypeConnexion.CONTINU));
 		
 		this.addServiceRequis(new Server_ReceiveRequest_Service("ReceiveRequest_Service"));
 		this.addServiceFournis(new Server_SendRequest_Service("SendRequest_Service"));

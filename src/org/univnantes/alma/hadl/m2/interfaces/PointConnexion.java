@@ -8,9 +8,11 @@ public abstract class PointConnexion extends Interface{
 		super(label);
 		this.type = type;
 	}
+	
 	public TypeConnexion getType() {
 		return type;
 	}
+	
 	public void setType(TypeConnexion type) {
 		this.type = type;
 	}
