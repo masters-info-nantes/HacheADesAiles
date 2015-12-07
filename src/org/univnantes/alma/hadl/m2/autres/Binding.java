@@ -14,6 +14,8 @@ public class Binding {
 		this.label = label;
 		this.port = port;
 		this.configport = configport;
+		
+		this.configport.addObserver(port);
 	}
 
 	public String getLabel() {

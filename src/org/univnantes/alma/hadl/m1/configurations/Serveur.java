@@ -35,21 +35,21 @@ public class Serveur extends Configuration {
 		this.addServiceFournis(new Server_SendRequest_Service("SendRequest_Service"));
 		
 		
-		this.addAttachement(new Attachement("attSecuSecu_To", 
-											this.getComposantByLabel("SecurityManager").getPortRequisByLabel("SecurityAuth_Requis"), 
-											this.getConnecteurByLabel("SecurityQuery").getRoleFournisByLabel("toSecurityAuth")));
-		
 		this.addAttachement(new Attachement("attSecuClearance_To", 
-											this.getComposantByLabel("SecurityManager").getPortRequisByLabel("CheckQuery_Requis"), 
-											this.getConnecteurByLabel("ClearanceRequest").getRoleFournisByLabel("toCheckQuery")));
+											this.getComposantByLabel("SecurityManager").getPortRequisByLabel("SecurityAuth_Requis"), 
+											this.getConnecteurByLabel("ClearanceRequest").getRoleFournisByLabel("toSecurityAuth")));
 		
-		this.addAttachement(new Attachement("attSecuSecu_From", 
-											this.getComposantByLabel("SecurityManager").getPortFournisByLabel("SecurityAuth_fournis"), 
-											this.getConnecteurByLabel("SecurityQuery").getRoleRequisByLabel("fromSecurityAuth")));
+		this.addAttachement(new Attachement("attSecuSecu_To", 
+											this.getComposantByLabel("SecurityManager").getPortRequisByLabel("CheckQuery_Requis"), 
+											this.getConnecteurByLabel("SecurityQuery").getRoleFournisByLabel("toCheckQuery")));
 		
 		this.addAttachement(new Attachement("attSecuClearance_From", 
-											this.getComposantByLabel("SecurityManager").getPortRequisByLabel("CheckQuery_Fournis"), 
-											this.getConnecteurByLabel("ClearanceRequest").getRoleFournisByLabel("fromCheckQuery")));
+											this.getComposantByLabel("SecurityManager").getPortFournisByLabel("SecurityAuth_Fournis"), 
+											this.getConnecteurByLabel("ClearanceRequest").getRoleRequisByLabel("fromSecurityAuth")));
+		
+		this.addAttachement(new Attachement("attSecuSecu_From", 
+											this.getComposantByLabel("SecurityManager").getPortFournisByLabel("CheckQuery_Fournis"), 
+											this.getConnecteurByLabel("SecurityQuery").getRoleRequisByLabel("fromCheckQuery")));
 		
 		
 		this.addAttachement(new Attachement("attConnClearance_To", 
@@ -71,23 +71,23 @@ public class Serveur extends Configuration {
 		
 		this.addAttachement(new Attachement("attDataSecu_To", 
 											this.getComposantByLabel("Database").getPortRequisByLabel("QueryD_Requis"), 
-											this.getConnecteurByLabel("SecurityQuery").getRoleFournisByLabel("toQueryD")));
+											this.getConnecteurByLabel("SQLQuery").getRoleFournisByLabel("toQueryD")));
 
 		this.addAttachement(new Attachement("attDataSQL_To", 
 											this.getComposantByLabel("Database").getPortRequisByLabel("SecurityManagement_Requis"), 
-											this.getConnecteurByLabel("SQLQuery").getRoleFournisByLabel("toSecurityManagement")));
+											this.getConnecteurByLabel("SecurityQuery").getRoleFournisByLabel("toSecurityManagement")));
 
 		this.addAttachement(new Attachement("attDataSecu_From", 
 											this.getComposantByLabel("Database").getPortFournisByLabel("QueryD_Fournis"), 
-											this.getConnecteurByLabel("SecurityQuery").getRoleRequisByLabel("fromQueryD")));
+											this.getConnecteurByLabel("SQLQuery").getRoleRequisByLabel("fromQueryD")));
 
 		this.addAttachement(new Attachement("attSQL_From", 
-											this.getComposantByLabel("Database").getPortFournisByLabel("SecutityManagement_Fournis"), 
-											this.getConnecteurByLabel("SQLQuery").getRoleRequisByLabel("fromSecurityManagement")));
+											this.getComposantByLabel("Database").getPortFournisByLabel("SecurityManagement_Fournis"), 
+											this.getConnecteurByLabel("SecurityQuery").getRoleRequisByLabel("fromSecurityManagement")));
 		
 		this.addBinding(new Binding("bindConnServeur", 
 						this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("ExternalSocket"), 
-						this.getConfigPortFournisByLabel("ReceiveRequest")));
+						this.getConfigPortFournisByLabel("SendRequest")));
 
 	}
 

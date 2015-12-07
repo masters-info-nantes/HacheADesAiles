@@ -1,6 +1,9 @@
 package org.univnantes.alma.hadl.m2.interfaces;
 
-public abstract class Interface {
+import java.util.Observable;
+import java.util.Observer;
+
+public abstract class Interface extends Observable implements Observer{
 	
 	private String label;
 	

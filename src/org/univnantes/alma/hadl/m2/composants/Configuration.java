@@ -78,8 +78,17 @@ public class Configuration extends Composant{
 		return null;
 	}
 	
-	public ConfigPortFournis  getConfigPortFournisByLabel (String label){
+	public ConfigPortFournis getConfigPortFournisByLabel (String label){
 		for(ConfigPortFournis c : configPortsFournis){
+			if(c.getLabel() == label){
+				return c;
+			}
+		}
+		return null;
+	}
+	
+	public ConfigPortRequis getConfigPortRequisByLabel (String label){
+		for(ConfigPortRequis c : configPortsRequis){
 			if(c.getLabel() == label){
 				return c;
 			}
