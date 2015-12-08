@@ -2,10 +2,10 @@ package org.univnantes.alma.hadl.m1.connecteurs;
 
 import org.univnantes.alma.hadl.m1.roles.Called;
 import org.univnantes.alma.hadl.m1.roles.Caller;
-import org.univnantes.alma.hadl.m2.connecteurs.Connecteur;
+import org.univnantes.alma.hadl.m2.connecteurs.ConnecteurAtomique;
 import org.univnantes.alma.hadl.m2.interfaces.TypeConnexion;
 
-public class RPC extends Connecteur {
+public class RPC extends ConnecteurAtomique {
 
 	public RPC(String label) {
 		super(label);

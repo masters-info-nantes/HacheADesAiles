@@ -17,13 +17,14 @@ public class PortFournis extends Port {
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
+		System.out.println("Port fournis : "+super.getLabel()+", Message : "+(String)arg);
 		if(o instanceof RoleRequis){
-			System.out.println("Port fournis"+super.getLabel());
+			System.out.println("From role requis "+super.getLabel());
 		}
 	}
 
 	public void sendRequest(String message){
-		System.out.println(super.getLabel()+": "+message);
+		System.out.println(super.getLabel()+" : "+message);
 		this.setChanged();
 		notifyObservers(message);
 	}

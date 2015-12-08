@@ -1,6 +1,8 @@
 package org.univnantes.alma.hadl.m2.connecteurs;
 
 import java.util.HashSet;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Set;
 
 import org.univnantes.alma.hadl.m2.autres.ContrainteTechnique;
@@ -9,7 +11,7 @@ import org.univnantes.alma.hadl.m2.composants.Composant;
 import org.univnantes.alma.hadl.m2.interfaces.RoleFournis;
 import org.univnantes.alma.hadl.m2.interfaces.RoleRequis;
 
-public abstract class Connecteur {
+public abstract class Connecteur extends Observable implements Observer{
 	
 	private String label;
 	protected Glue glue;
@@ -56,10 +58,12 @@ public abstract class Connecteur {
 	}
 
 	public boolean addRoleRequis(RoleRequis e) {
+		e.addObserver(this);
 		return rolesrequis.add(e);
 	}
 
 	public boolean addRoleFournis(RoleFournis e) {
+		this.addObserver(e);
 		return rolesfournis.add(e);
 	}
 
@@ -92,4 +96,11 @@ public abstract class Connecteur {
 		}
 		return null;
 	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+	}
+	
+	
 }

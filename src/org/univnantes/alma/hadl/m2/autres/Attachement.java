@@ -1,7 +1,13 @@
 package org.univnantes.alma.hadl.m2.autres;
 
+import org.univnantes.alma.hadl.m2.interfaces.ConfigPortFournis;
+import org.univnantes.alma.hadl.m2.interfaces.ConfigPortRequis;
 import org.univnantes.alma.hadl.m2.interfaces.Port;
+import org.univnantes.alma.hadl.m2.interfaces.PortFournis;
+import org.univnantes.alma.hadl.m2.interfaces.PortRequis;
 import org.univnantes.alma.hadl.m2.interfaces.Role;
+import org.univnantes.alma.hadl.m2.interfaces.RoleFournis;
+import org.univnantes.alma.hadl.m2.interfaces.RoleRequis;
 
 public class Attachement {
 
@@ -15,8 +21,13 @@ public class Attachement {
 		this.port = port;
 		this.role = role;
 		
-		this.role.addObserver(port);
-		this.port.addObserver(role);
+		//this.role.addObserver(port);
+		//this.port.addObserver(role);
+		if((this.port instanceof PortRequis || this.port instanceof ConfigPortRequis) && this.role instanceof RoleFournis){
+			this.role.addObserver(this.port);
+		}else if((this.port instanceof PortFournis || this.port instanceof ConfigPortFournis) && this.role instanceof RoleRequis){
+			this.port.addObserver(this.role);
+		}
 	}
 
 	public String getLabel() {

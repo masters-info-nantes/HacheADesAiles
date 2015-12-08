@@ -12,5 +12,4 @@ public abstract class Port extends PointConnexion{
 		return "Port [label=" + super.getLabel() + "]";
 	}
 
-	
 }
