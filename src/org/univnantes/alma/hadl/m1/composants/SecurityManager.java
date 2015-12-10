@@ -11,6 +11,8 @@ import org.univnantes.alma.hadl.m1.services.requis.SecurityAuth_ServiceRequis;
 import org.univnantes.alma.hadl.m2.composants.ComposantAtomique;
 import org.univnantes.alma.hadl.m2.interfaces.TypeConnexion;
 
+import java.util.Observable;
+
 public class SecurityManager extends ComposantAtomique {
 
 	public SecurityManager(String label) {
@@ -29,4 +31,17 @@ public class SecurityManager extends ComposantAtomique {
 		this.addServiceRequis(new CheckQuery_ServiceRequis("CheckQuery_ServiceRequis"));
 	}
 
+	@Override
+	public void update(Observable observable, Object o) {
+		System.out.println("Passage dans SecurityManager");
+		if(observable ==  getPortRequisByLabel("SecurityAuth_Requis")){
+			if("Bonjour".equals(o)) {
+				getPortFournisByLabel("CheckQuery_Fournis").sendRequest((String) o);
+			}else {
+				getPortFournisByLabel("SecurityAuth_Fournis").sendRequest("false");
+			}
+		}else if (observable == getPortFournisByLabel("CheckQuery_Requis")){
+			getPortFournisByLabel("SecurityAuth_Fournis").sendRequest((String) o);
+		}
+	}
 }

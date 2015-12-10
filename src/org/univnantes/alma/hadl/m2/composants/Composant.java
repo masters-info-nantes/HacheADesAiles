@@ -1,6 +1,8 @@
 package org.univnantes.alma.hadl.m2.composants;
 
 import java.util.HashSet;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Set;
 
 import org.univnantes.alma.hadl.m2.autres.ContrainteTechnique;
@@ -11,7 +13,7 @@ import org.univnantes.alma.hadl.m2.interfaces.PortRequis;
 import org.univnantes.alma.hadl.m2.interfaces.ServiceFournis;
 import org.univnantes.alma.hadl.m2.interfaces.ServiceRequis;
 
-public abstract class Composant {
+public abstract class Composant implements Observer {
 	
 	private String label;
 	
@@ -54,10 +56,12 @@ public abstract class Composant {
 	}
 
 	public boolean addPortFournis(PortFournis e) {
+		//e.addObserver(this);
 		return portsfournis.add(e);
 	}
 
 	public boolean addPortRequis(PortRequis e) {
+		e.addObserver(this);
 		return portsrequis.add(e);
 	}
 

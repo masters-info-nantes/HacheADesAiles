@@ -11,6 +11,8 @@ import org.univnantes.alma.hadl.m1.services.requis.SecurityManagement_ServiceReq
 import org.univnantes.alma.hadl.m2.composants.ComposantAtomique;
 import org.univnantes.alma.hadl.m2.interfaces.TypeConnexion;
 
+import java.util.Observable;
+
 public class Database extends ComposantAtomique{
 
 	public Database(String label) {
@@ -29,4 +31,14 @@ public class Database extends ComposantAtomique{
 		this.addServiceRequis(new SecurityManagement_ServiceRequis("SecurityManagement_ServiceRequis"));
 	}
 
+
+	@Override
+	public void update(Observable observable, Object o) {
+		System.out.println("Passage dans Database");
+		if(observable == getPortRequisByLabel("QueryD_Requis")){
+			getPortFournisByLabel("Security_Management_Fournis").sendRequest((String) o);
+		} else if (observable == getPortRequisByLabel("Security_Management_Requis")){
+			getPortFournisByLabel("QueryD_Fournis").sendRequest((String) o);
+		}
+	}
 }

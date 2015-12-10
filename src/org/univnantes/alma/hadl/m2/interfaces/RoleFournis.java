@@ -2,6 +2,8 @@ package org.univnantes.alma.hadl.m2.interfaces;
 
 import java.util.Observable;
 
+import org.univnantes.alma.hadl.m2.connecteurs.ConnecteurAtomique;
+
 
 public class RoleFournis extends Role {
 
@@ -14,16 +16,21 @@ public class RoleFournis extends Role {
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		System.out.println("Role Fournis : "+super.getLabel()+", Message : "+(String) arg);
-		this.setChanged();
-		notifyObservers(arg);
+		
 		if(o instanceof PortRequis){
 			System.out.println("From port requis "+((PortRequis) o).getLabel());
+			this.setChanged();
+			notifyObservers(arg);
+		}else if(o instanceof ConnecteurAtomique){
+			System.out.println("From Connecteur "+((ConnecteurAtomique) o).getLabel());
+			this.setChanged();
+			notifyObservers(arg);
 		}
 	}
 
 	public void sendRequest(String message){
-		System.out.println(super.getLabel()+" : "+message);
-		//this.setChanged();
+		System.out.println("Role send : "+super.getLabel()+" : "+message);
+		this.setChanged();
 		notifyObservers(message);
 	}
 }

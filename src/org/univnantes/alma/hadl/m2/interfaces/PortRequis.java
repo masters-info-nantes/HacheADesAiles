@@ -20,11 +20,13 @@ public class PortRequis extends Port {
 		System.out.println("Port requis : "+super.getLabel()+", Message : "+(String)arg);
 		if(o instanceof RoleFournis){
 			System.out.println("From role fournis "+super.getLabel());
+			this.setChanged();
+			notifyObservers(arg);
 		}
 	}
 	
 	public void receiveRequest(String message){
-		System.out.println(super.getLabel()+" : "+ message);
+		System.out.println("Port receive : "+super.getLabel()+" : "+ message);
 		this.setChanged();
 		notifyObservers(message);
 	}

@@ -13,7 +13,12 @@ import org.univnantes.alma.hadl.m1.services.requis.SecurityCheck_ServiceRequis;
 import org.univnantes.alma.hadl.m2.composants.ComposantAtomique;
 import org.univnantes.alma.hadl.m2.interfaces.TypeConnexion;
 
+import java.util.Observable;
+
 public class ConnexionManager extends ComposantAtomique{
+
+
+	private String message;
 
 	public ConnexionManager(String label) {
 		super(label);
@@ -33,4 +38,18 @@ public class ConnexionManager extends ComposantAtomique{
 		this.addServiceRequis(new DBQuery_ServiceRequis("DBQuery_ServiceRequis"));
 	}
 
+	@Override
+	public void update(Observable observable, Object o) {
+		System.out.println("Passage dans connexionManager");
+		if(observable == getPortRequisByLabel("ExternalSocket_Requis")){
+			message = (String) o;
+			getPortFournisByLabel("SecurityCheckFournis").sendRequest(message);
+		}else if(observable == getPortRequisByLabel("SecurityCheck_Requis")){
+			if("true".equals(o)){
+				getPortFournisByLabel("DBQuery_Fournis").sendRequest(message);
+			}
+		}else if(observable == getPortRequisByLabel("DBQuery_Requis")){
+			getPortFournisByLabel("ExternalSocket_Fournis").sendRequest((String) o);
+		}
+	}
 }

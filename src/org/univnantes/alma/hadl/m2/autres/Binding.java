@@ -1,7 +1,13 @@
 package org.univnantes.alma.hadl.m2.autres;
 
 import org.univnantes.alma.hadl.m2.interfaces.ConfigPort;
+import org.univnantes.alma.hadl.m2.interfaces.ConfigPortFournis;
+import org.univnantes.alma.hadl.m2.interfaces.ConfigPortRequis;
 import org.univnantes.alma.hadl.m2.interfaces.Port;
+import org.univnantes.alma.hadl.m2.interfaces.PortFournis;
+import org.univnantes.alma.hadl.m2.interfaces.PortRequis;
+import org.univnantes.alma.hadl.m2.interfaces.RoleFournis;
+import org.univnantes.alma.hadl.m2.interfaces.RoleRequis;
 
 public class Binding {
 
@@ -15,8 +21,13 @@ public class Binding {
 		this.port = port;
 		this.configport = configport;
 		
-		this.configport.addObserver(port);
-		this.port.addObserver(configport);
+		//this.configport.addObserver(port);
+		//this.port.addObserver(configport);
+		if(this.port instanceof PortRequis && this.configport instanceof ConfigPortRequis){
+			this.port.addObserver(this.configport);
+		}else if(this.port instanceof PortFournis && this.configport instanceof ConfigPortFournis){
+			this.configport.addObserver(this.port);
+		}
 	}
 
 	public String getLabel() {

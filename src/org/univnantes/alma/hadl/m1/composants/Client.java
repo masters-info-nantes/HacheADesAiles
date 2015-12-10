@@ -7,6 +7,8 @@ import org.univnantes.alma.hadl.m1.services.requis.Client_ReceiveRequest_Service
 import org.univnantes.alma.hadl.m2.composants.ComposantAtomique;
 import org.univnantes.alma.hadl.m2.interfaces.TypeConnexion;
 
+import java.util.Observable;
+
 public class Client extends ComposantAtomique {
 
 	public Client(String label) {
@@ -19,4 +21,8 @@ public class Client extends ComposantAtomique {
 		this.addServiceRequis(new Client_ReceiveRequest_Service("Client_ReceiveRequest_Service"));
 	}
 
+	@Override
+	public void update(Observable observable, Object o) {
+
+	}
 }

@@ -1,6 +1,7 @@
 package org.univnantes.alma.hadl.m2.composants;
 
 import java.util.HashSet;
+import java.util.Observable;
 import java.util.Set;
 
 import org.univnantes.alma.hadl.m2.autres.Attachement;
@@ -94,5 +95,10 @@ public class Configuration extends Composant{
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void update(Observable observable, Object o) {
+
 	}
 }

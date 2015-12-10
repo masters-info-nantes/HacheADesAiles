@@ -87,11 +87,11 @@ public class Serveur extends Configuration {
 		
 		this.addBinding(new Binding("bindConnServeur", 
 						this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("ExternalSocket_Requis"), 
-						this.getConfigPortFournisByLabel("Server_SendRequest")));
+						this.getConfigPortRequisByLabel("Server_ReceiveRequest")));
 		
 		this.addBinding(new Binding("bindServeurConn", 
 				this.getComposantByLabel("ConnexionManager").getPortFournisByLabel("ExternalSocket_Fournis"), 
-				this.getConfigPortRequisByLabel("Server_ReceiveRequest")));
+				this.getConfigPortFournisByLabel("Server_SendRequest")));
 
 	}
 

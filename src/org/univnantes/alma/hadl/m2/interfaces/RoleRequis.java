@@ -16,18 +16,21 @@ public class RoleRequis extends Role {
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		System.out.println("Role Requis : "+super.getLabel()+", Message : "+(String) arg);
-		this.setChanged();
-		notifyObservers(arg);
+		
 		if(o instanceof PortFournis){
 			System.out.println("From port fournis "+((PortFournis)o).getLabel());
+			this.setChanged();
+			notifyObservers(arg);
 		}else if (o instanceof ConnecteurAtomique){
-			System.out.println("POET");
+			System.out.println("From Connecteur "+((ConnecteurAtomique) o).getLabel());
+			this.setChanged();
+			notifyObservers(arg);
 		}
 	}
 
 	public void receiveRequest(String message){
-		System.out.println(super.getLabel()+" : "+message);
-		//this.setChanged();
+		System.out.println("Role receive : "+super.getLabel()+" : "+message);
+		this.setChanged();
 		notifyObservers(message);
 	}
 }
