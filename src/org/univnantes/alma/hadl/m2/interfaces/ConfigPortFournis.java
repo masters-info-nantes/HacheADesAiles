@@ -16,8 +16,12 @@ public class ConfigPortFournis extends ConfigPort {
 			System.out.println("From role requis "+super.getLabel());
 			this.setChanged();
 			notifyObservers(o);
-		}else if(observable instanceof PortFournis){
+		}else if(observable instanceof PortRequis){
 			System.out.println("From port requis "+super.getLabel());
+			this.setChanged();
+			notifyObservers(o);
+		}else if(observable instanceof PortFournis){
+			System.out.println("From port fournis "+ ((PortFournis) observable).getLabel());
 			this.setChanged();
 			notifyObservers(o);
 		}

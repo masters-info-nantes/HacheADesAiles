@@ -18,18 +18,18 @@ public class RoleFournis extends Role {
 		System.out.println("Role Fournis : "+super.getLabel()+", Message : "+(String) arg);
 		
 		if(o instanceof PortRequis){
-			System.out.println("From port requis "+((PortRequis) o).getLabel());
+			//System.out.println("From port requis "+((PortRequis) o).getLabel());
 			this.setChanged();
 			notifyObservers(arg);
 		}else if(o instanceof ConnecteurAtomique){
-			System.out.println("From Connecteur "+((ConnecteurAtomique) o).getLabel());
+			//System.out.println("From Connecteur "+((ConnecteurAtomique) o).getLabel());
 			this.setChanged();
 			notifyObservers(arg);
 		}
 	}
 
 	public void sendRequest(String message){
-		System.out.println("Role send : "+super.getLabel()+" : "+message);
+		//System.out.println("Role Fourni : "+super.getLabel()+", Send message : "+message);
 		this.setChanged();
 		notifyObservers(message);
 	}

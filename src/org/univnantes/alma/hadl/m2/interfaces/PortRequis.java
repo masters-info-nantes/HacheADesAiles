@@ -19,14 +19,18 @@ public class PortRequis extends Port {
 		// TODO Auto-generated method stub
 		System.out.println("Port requis : "+super.getLabel()+", Message : "+(String)arg);
 		if(o instanceof RoleFournis){
-			System.out.println("From role fournis "+super.getLabel());
+			//System.out.println("From role fournis "+((RoleFournis)o).getLabel());
+			this.setChanged();
+			notifyObservers(arg);
+		}else if(o instanceof  ConfigPortRequis){
+			//System.out.println("From config port requis"+((ConfigPortRequis) o).getLabel());
 			this.setChanged();
 			notifyObservers(arg);
 		}
 	}
 	
 	public void receiveRequest(String message){
-		System.out.println("Port receive : "+super.getLabel()+" : "+ message);
+		System.out.println("Port Requis : "+super.getLabel()+", Receive message : "+ message);
 		this.setChanged();
 		notifyObservers(message);
 	}

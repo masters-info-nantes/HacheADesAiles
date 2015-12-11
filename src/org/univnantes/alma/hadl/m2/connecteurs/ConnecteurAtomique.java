@@ -14,21 +14,18 @@ public class ConnecteurAtomique extends Connecteur {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		//this.setChanged();
+		System.out.print("Passage dans [Connecteur]: "+super.getLabel());
 		if(o instanceof RoleRequis){
-			System.out.println("Connecteur : "+super.getLabel()+", Caller : "+((RoleRequis) o).getLabel());
-			for (RoleFournis rf : getRolesfournis()){
-				rf.sendRequest((String)arg);
+			System.out.println(" | Caller : "+((RoleRequis) o).getLabel());
+			for (RoleFournis rf : getRolesfournis()) {
+				rf.sendRequest((String) arg);
 			}
-			//((RoleRequis) o).receiveRequest((String)arg);
 		}else if(o instanceof RoleFournis){
-			System.out.println("Connecteur : "+super.getLabel()+", Called : "+((RoleFournis) o).getLabel());
+			System.out.println(" | Called : "+((RoleFournis) o).getLabel());
 			for (RoleRequis rq : getRolesrequis()){
 				rq.receiveRequest((String) arg);
 			}
-			//((RoleFournis) o).sendRequest((String)arg);
 		}
-		//notifyObservers(arg);
 	}
 
 }

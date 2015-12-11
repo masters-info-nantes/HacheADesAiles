@@ -1,6 +1,7 @@
 package org.univnantes.alma.hadl.m2.composants;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Set;
 
@@ -72,7 +73,7 @@ public class Configuration extends Composant{
 	
 	public Composant getComposantByLabel(String label) {
 		for(Composant c : composants){
-			if(c.getLabel() == label){
+			if(Objects.equals(c.getLabel(), label)){
 				return c;
 			}
 		}
@@ -81,7 +82,7 @@ public class Configuration extends Composant{
 	
 	public ConfigPortFournis getConfigPortFournisByLabel (String label){
 		for(ConfigPortFournis c : configPortsFournis){
-			if(c.getLabel() == label){
+			if(Objects.equals(c.getLabel(), label)){
 				return c;
 			}
 		}
@@ -90,7 +91,7 @@ public class Configuration extends Composant{
 	
 	public ConfigPortRequis getConfigPortRequisByLabel (String label){
 		for(ConfigPortRequis c : configPortsRequis){
-			if(c.getLabel() == label){
+			if(Objects.equals(c.getLabel(), label)){
 				return c;
 			}
 		}

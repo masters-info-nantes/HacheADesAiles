@@ -12,7 +12,9 @@ public class RPC extends ConnecteurAtomique {
 
 		this.setGlue(new RPC_Glue());
 		this.addRoleFournis(new Called("toServer_ReceiveRequest",TypeConnexion.CONTINU));
+		this.addRoleFournis(new Called("toClient_ReceiveRequest",TypeConnexion.CONTINU));
 		this.addRoleRequis(new Caller("fromClient_SendRequest",TypeConnexion.CONTINU));
+		this.addRoleRequis(new Caller("fromServer_SendRequest",TypeConnexion.CONTINU));
 	}
 
 }

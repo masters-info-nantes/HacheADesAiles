@@ -13,13 +13,24 @@ public class ClientServeur extends Configuration {
 		this.addComposant(new Client("Client"));
 		this.addComposant(new Serveur("Serveur"));
 		
-		this.addConnecteur(new RPC("RPC"));
+		this.addConnecteur(new RPC("RPCTo"));
+		this.addConnecteur(new RPC("RPCFrom"));
 		
-		this.addAttachement(new Attachement("attachementClientRPC", this.getComposantByLabel("Client").getPortFournisByLabel("Client_SendRequest"), 
-												this.getConnecteurByLabel("RPC").getRoleRequisByLabel("fromClient_SendRequest")));
+		this.addAttachement(new Attachement("attachementClientRPC",
+				this.getComposantByLabel("Client").getPortFournisByLabel("Client_SendRequest"),
+				this.getConnecteurByLabel("RPCTo").getRoleRequisByLabel("fromClient_SendRequest")));
 		
-		this.addAttachement(new Attachement("attachementServeurRPC", ((Configuration)this.getComposantByLabel("Serveur")).getConfigPortRequisByLabel("Server_ReceiveRequest"), 
-												this.getConnecteurByLabel("RPC").getRoleFournisByLabel("toServer_ReceiveRequest")));
+		this.addAttachement(new Attachement("attachementServeurRPC",
+				((Configuration)this.getComposantByLabel("Serveur")).getConfigPortRequisByLabel("Server_ReceiveRequest"),
+				this.getConnecteurByLabel("RPCTo").getRoleFournisByLabel("toServer_ReceiveRequest")));
+
+		this.addAttachement(new Attachement("attachementRPCClient",
+				this.getComposantByLabel("Client").getPortRequisByLabel("Client_ReceiveRequest"),
+				this.getConnecteurByLabel("RPCFrom").getRoleFournisByLabel("toClient_ReceiveRequest")));
+
+		this.addAttachement(new Attachement("attachementRPCServeur",
+				((Configuration)this.getComposantByLabel("Serveur")).getConfigPortFournisByLabel("Server_SendRequest"),
+				this.getConnecteurByLabel("RPCFrom").getRoleRequisByLabel("fromServer_SendRequest")));
 	}
 
 	public void run(){

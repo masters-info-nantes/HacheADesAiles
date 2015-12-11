@@ -24,9 +24,12 @@ public class Serveur extends Configuration {
 		this.addComposant(new ConnexionManager("ConnexionManager"));
 		this.addComposant(new Database("Database"));
 		
-		this.addConnecteur(new ClearanceRequest("ClearanceRequest"));
-		this.addConnecteur(new SQLQuery("SQLQuery"));
-		this.addConnecteur(new SecurityQuery("SecurityQuery"));
+		this.addConnecteur(new ClearanceRequest("ClearanceRequestTo"));
+		this.addConnecteur(new ClearanceRequest("ClearanceRequestFrom"));
+		this.addConnecteur(new SQLQuery("SQLQueryTo"));
+		this.addConnecteur(new SQLQuery("SQLQueryFrom"));
+		this.addConnecteur(new SecurityQuery("SecurityQueryTo"));
+		this.addConnecteur(new SecurityQuery("SecurityQueryFrom"));
 		
 		this.addConfigPortRequis(new Server_ReceiveRequest("Server_ReceiveRequest",TypeConnexion.CONTINU));
 		this.addConfigPortFournis(new Server_SendRequest("Server_SendRequest",TypeConnexion.CONTINU));
@@ -35,63 +38,59 @@ public class Serveur extends Configuration {
 		this.addServiceFournis(new Server_SendRequest_Service("Server_SendRequest_Service"));
 		
 		
-		this.addAttachement(new Attachement("attSecuClearance_To", 
-											this.getComposantByLabel("SecurityManager").getPortRequisByLabel("SecurityAuth_Requis"), 
-											this.getConnecteurByLabel("ClearanceRequest").getRoleFournisByLabel("toSecurityAuth")));
-		
-		this.addAttachement(new Attachement("attSecuSecu_To", 
-											this.getComposantByLabel("SecurityManager").getPortRequisByLabel("CheckQuery_Requis"), 
-											this.getConnecteurByLabel("SecurityQuery").getRoleFournisByLabel("toCheckQuery")));
-		
-		this.addAttachement(new Attachement("attSecuClearance_From", 
-											this.getComposantByLabel("SecurityManager").getPortFournisByLabel("SecurityAuth_Fournis"), 
-											this.getConnecteurByLabel("ClearanceRequest").getRoleRequisByLabel("fromSecurityAuth")));
-		
-		this.addAttachement(new Attachement("attSecuSecu_From", 
-											this.getComposantByLabel("SecurityManager").getPortFournisByLabel("CheckQuery_Fournis"), 
-											this.getConnecteurByLabel("SecurityQuery").getRoleRequisByLabel("fromCheckQuery")));
-		
-		
-		this.addAttachement(new Attachement("attConnClearance_To", 
-											this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("SecurityCheck_Requis"), 
-											this.getConnecteurByLabel("ClearanceRequest").getRoleFournisByLabel("toSecurityCheck")));
-		
-		this.addAttachement(new Attachement("attConnSQL_To", 
-											this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("DBQuery_Requis"), 
-											this.getConnecteurByLabel("SQLQuery").getRoleFournisByLabel("toDBQuery")));
-		
-		this.addAttachement(new Attachement("attConnClearance_From", 
-											this.getComposantByLabel("ConnexionManager").getPortFournisByLabel("SecurityCheck_Fournis"), 
-											this.getConnecteurByLabel("ClearanceRequest").getRoleRequisByLabel("fromSecurityCheck")));
-		
-		this.addAttachement(new Attachement("attConnSQL_From", 
-											this.getComposantByLabel("ConnexionManager").getPortFournisByLabel("DBQuery_Fournis"), 
-											this.getConnecteurByLabel("SQLQuery").getRoleRequisByLabel("fromDBQuery")));
-		
-		
-		this.addAttachement(new Attachement("attDataSecu_To", 
-											this.getComposantByLabel("Database").getPortRequisByLabel("QueryD_Requis"), 
-											this.getConnecteurByLabel("SQLQuery").getRoleFournisByLabel("toQueryD")));
+		this.addAttachement(new Attachement("attConnClearance_To",
+				this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("SecurityCheck_Requis"),
+				this.getConnecteurByLabel("ClearanceRequestFrom").getRoleFournisByLabel("toSecurityCheck")));
+		this.addAttachement(new Attachement("attSecuClearance_From",
+				this.getComposantByLabel("SecurityManager").getPortFournisByLabel("SecurityAuth_Fournis"),
+				this.getConnecteurByLabel("ClearanceRequestFrom").getRoleRequisByLabel("fromSecurityAuth")));
 
-		this.addAttachement(new Attachement("attDataSQL_To", 
-											this.getComposantByLabel("Database").getPortRequisByLabel("SecurityManagement_Requis"), 
-											this.getConnecteurByLabel("SecurityQuery").getRoleFournisByLabel("toSecurityManagement")));
+		this.addAttachement(new Attachement("attConnClearance_From",
+				this.getComposantByLabel("ConnexionManager").getPortFournisByLabel("SecurityCheck_Fournis"),
+				this.getConnecteurByLabel("ClearanceRequestTo").getRoleRequisByLabel("fromSecurityCheck")));
+		this.addAttachement(new Attachement("attSecuClearance_To",
+				this.getComposantByLabel("SecurityManager").getPortRequisByLabel("SecurityAuth_Requis"),
+				this.getConnecteurByLabel("ClearanceRequestTo").getRoleFournisByLabel("toSecurityAuth")));
 
-		this.addAttachement(new Attachement("attDataSecu_From", 
-											this.getComposantByLabel("Database").getPortFournisByLabel("QueryD_Fournis"), 
-											this.getConnecteurByLabel("SQLQuery").getRoleRequisByLabel("fromQueryD")));
 
-		this.addAttachement(new Attachement("attSQL_From", 
-											this.getComposantByLabel("Database").getPortFournisByLabel("SecurityManagement_Fournis"), 
-											this.getConnecteurByLabel("SecurityQuery").getRoleRequisByLabel("fromSecurityManagement")));
-		
+		this.addAttachement(new Attachement("attSecuSecu_From",
+				this.getComposantByLabel("SecurityManager").getPortFournisByLabel("CheckQuery_Fournis"),
+				this.getConnecteurByLabel("SecurityQueryFrom").getRoleRequisByLabel("fromCheckQuery")));
+		this.addAttachement(new Attachement("attDataSQL_To",
+				this.getComposantByLabel("Database").getPortRequisByLabel("SecurityManagement_Requis"),
+				this.getConnecteurByLabel("SecurityQueryFrom").getRoleFournisByLabel("toSecurityManagement")));
+
+		this.addAttachement(new Attachement("attSecuSecu_To",
+				this.getComposantByLabel("SecurityManager").getPortRequisByLabel("CheckQuery_Requis"),
+				this.getConnecteurByLabel("SecurityQueryTo").getRoleFournisByLabel("toCheckQuery")));
+		this.addAttachement(new Attachement("attSQL_From",
+				this.getComposantByLabel("Database").getPortFournisByLabel("SecurityManagement_Fournis"),
+				this.getConnecteurByLabel("SecurityQueryTo").getRoleRequisByLabel("fromSecurityManagement")));
+
+
+		this.addAttachement(new Attachement("attConnSQL_To",
+				this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("DBQuery_Requis"),
+				this.getConnecteurByLabel("SQLQueryFrom").getRoleFournisByLabel("toDBQuery")));
+		this.addAttachement(new Attachement("attDataSecu_From",
+				this.getComposantByLabel("Database").getPortFournisByLabel("QueryD_Fournis"),
+				this.getConnecteurByLabel("SQLQueryFrom").getRoleRequisByLabel("fromQueryD")));
+
+
+		this.addAttachement(new Attachement("attConnSQL_From",
+				this.getComposantByLabel("ConnexionManager").getPortFournisByLabel("DBQuery_Fournis"),
+				this.getConnecteurByLabel("SQLQueryTo").getRoleRequisByLabel("fromDBQuery")));
+		this.addAttachement(new Attachement("attDataSecu_To",
+				this.getComposantByLabel("Database").getPortRequisByLabel("QueryD_Requis"),
+				this.getConnecteurByLabel("SQLQueryTo").getRoleFournisByLabel("toQueryD")));
+
 		this.addBinding(new Binding("bindConnServeur", 
-						this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("ExternalSocket_Requis"), 
-						this.getConfigPortRequisByLabel("Server_ReceiveRequest")));
+				this.getComposantByLabel("ConnexionManager").getPortRequisByLabel("ExternalSocket_Requis"),
+				this.getConfigPortRequisByLabel("Server_ReceiveRequest")));
 		
 		this.addBinding(new Binding("bindServeurConn", 
 				this.getComposantByLabel("ConnexionManager").getPortFournisByLabel("ExternalSocket_Fournis"), 
 				this.getConfigPortFournisByLabel("Server_SendRequest")));
+
 
 	}
 

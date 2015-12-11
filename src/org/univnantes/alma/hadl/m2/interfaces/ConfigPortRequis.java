@@ -16,7 +16,7 @@ public class ConfigPortRequis extends ConfigPort {
 			System.out.println("From role fournis "+((RoleFournis)observable).getLabel());
 			this.setChanged();
 			notifyObservers(o);
-		}else if(observable instanceof PortRequis){
+		}else if(observable instanceof PortFournis){
 			System.out.println("From port fournis "+super.getLabel());
 			this.setChanged();
 			notifyObservers(o);

@@ -23,6 +23,8 @@ public class Client extends ComposantAtomique {
 
 	@Override
 	public void update(Observable observable, Object o) {
-
+		if(observable == getPortRequisByLabel("Client_ReceiveRequest")){
+			System.out.println("Client receive message :"+o);
+		}
 	}
 }

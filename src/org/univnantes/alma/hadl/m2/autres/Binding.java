@@ -20,14 +20,20 @@ public class Binding {
 		this.label = label;
 		this.port = port;
 		this.configport = configport;
-		
+
 		//this.configport.addObserver(port);
 		//this.port.addObserver(configport);
 		if(this.port instanceof PortRequis && this.configport instanceof ConfigPortRequis){
-			this.port.addObserver(this.configport);
-		}else if(this.port instanceof PortFournis && this.configport instanceof ConfigPortFournis){
+			//this.port.addObserver(this.configport);
 			this.configport.addObserver(this.port);
+		}else if(this.port instanceof PortFournis && this.configport instanceof ConfigPortFournis){
+			//this.configport.addObserver(this.port);
+			this.port.addObserver(this.configport);
 		}
+// else if(this.port instanceof ConfigPortRequis && this.configport instanceof ConfigPortFournis){
+//			this.port.addObserver(this.configport);
+//		}
+
 	}
 
 	public String getLabel() {

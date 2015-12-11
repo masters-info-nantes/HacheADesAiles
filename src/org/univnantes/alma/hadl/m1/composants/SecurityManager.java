@@ -33,14 +33,14 @@ public class SecurityManager extends ComposantAtomique {
 
 	@Override
 	public void update(Observable observable, Object o) {
-		System.out.println("Passage dans SecurityManager");
+		System.out.println("Passage dans [Composant] : SecurityManager");
 		if(observable ==  getPortRequisByLabel("SecurityAuth_Requis")){
 			if("Bonjour".equals(o)) {
 				getPortFournisByLabel("CheckQuery_Fournis").sendRequest((String) o);
 			}else {
 				getPortFournisByLabel("SecurityAuth_Fournis").sendRequest("false");
 			}
-		}else if (observable == getPortFournisByLabel("CheckQuery_Requis")){
+		}else if (observable == getPortRequisByLabel("CheckQuery_Requis")){
 			getPortFournisByLabel("SecurityAuth_Fournis").sendRequest((String) o);
 		}
 	}

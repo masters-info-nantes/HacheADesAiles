@@ -34,11 +34,12 @@ public class Database extends ComposantAtomique{
 
 	@Override
 	public void update(Observable observable, Object o) {
-		System.out.println("Passage dans Database");
+		System.out.println("Passage dans [Composant] : Database");
 		if(observable == getPortRequisByLabel("QueryD_Requis")){
-			getPortFournisByLabel("Security_Management_Fournis").sendRequest((String) o);
-		} else if (observable == getPortRequisByLabel("Security_Management_Requis")){
-			getPortFournisByLabel("QueryD_Fournis").sendRequest((String) o);
+			getPortFournisByLabel("QueryD_Fournis").sendRequest((String) o + " Player1");
+		} else if (observable == getPortRequisByLabel("SecurityManagement_Requis")){
+			String reponse = ("Bonjour".equals(o)) ? "true" : "false";
+			getPortFournisByLabel("SecurityManagement_Fournis").sendRequest(reponse);
 		}
 	}
 }

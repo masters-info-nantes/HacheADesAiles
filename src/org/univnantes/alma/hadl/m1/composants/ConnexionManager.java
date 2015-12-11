@@ -40,13 +40,15 @@ public class ConnexionManager extends ComposantAtomique{
 
 	@Override
 	public void update(Observable observable, Object o) {
-		System.out.println("Passage dans connexionManager");
+		System.out.println("Passage dans [Composant] : ConnexionManager");
 		if(observable == getPortRequisByLabel("ExternalSocket_Requis")){
 			message = (String) o;
-			getPortFournisByLabel("SecurityCheckFournis").sendRequest(message);
+			getPortFournisByLabel("SecurityCheck_Fournis").sendRequest(message);
 		}else if(observable == getPortRequisByLabel("SecurityCheck_Requis")){
 			if("true".equals(o)){
 				getPortFournisByLabel("DBQuery_Fournis").sendRequest(message);
+			}else{
+				System.out.println("C'est faux");
 			}
 		}else if(observable == getPortRequisByLabel("DBQuery_Requis")){
 			getPortFournisByLabel("ExternalSocket_Fournis").sendRequest((String) o);
